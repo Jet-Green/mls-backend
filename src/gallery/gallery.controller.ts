@@ -30,6 +30,7 @@ export class GalleryController {
     let index = 0;
     for (let file of files) {
       const processedBuffer = await sharp(file.buffer)
+        .rotate()
         .webp({ quality: 100 })
         .toBuffer();
 
